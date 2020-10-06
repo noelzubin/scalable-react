@@ -1,7 +1,23 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). 
+
+This boilerplate consists of     
+1. React Redux 
+2. React Router
+3. Redux Sagas
+4. Redux Dynamic Modules 
+
+The code is split into modules(including sagas, actions and reducers) and each module is lazy loaded. You can use this starter if you are planning to build a huge react app. 
+
+## Quick Start
+1. Clone this repo using
+``` sh
+  git clone --depth=1 https://github.com/noelzubin/scalabe-react.git <YOUR_PROJECT_NAME>
+```
+2. Move to the appropriate directory: cd <YOUR_PROJECT_NAME>.
+3. Run npm run setup in order to install dependencies and clean the git repo.
+At this point you can run npm start to see the example app at http://localhost:3000.
 
 ## Available Scripts
-
 In the project directory, you can run:
 
 ### `yarn start`

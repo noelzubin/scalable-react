@@ -1,0 +1,11 @@
+
+.photos {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.photos img {
+  height: 50px;
+  width: 50px;
+  margin: 20px;
+}

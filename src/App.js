@@ -1,24 +1,49 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useEffect, lazy, Suspense } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { appSelector } from './store/reducers' 
+import { fetchPost } from './store/actions';
+import { Link, Switch, Route } from 'react-router-dom';
 import './App.css';
 
+const Users = lazy(() => import('./Users'));
+const Photos = lazy(() => import('./Photos'));
+
 function App() {
+  const { post, error } = useSelector(appSelector);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchPost())
+  }, [dispatch, fetchPost]) 
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div>
+        <Link to="/home" > Home </Link>
+        <Link to="/users" > Users Module </Link>
+        <Link to="/photos" > Photos Module </Link>
+      </div>
+
+      { post && (
+        <>
+          <b> fetched post from root saga: </b>
+          {post.title}
+        </>
+      )}
+      { error && (
+        <div> Failed to fetch post </div>
+      )}
+
+      <Suspense fallback="loading module....">
+        <Switch>
+          <Route path="/users">
+            <Users />
+          </Route>
+          <Route path="/photos">
+            <Photos />
+          </Route>
+        </Switch>
+      </Suspense>
     </div>
   );
 }
