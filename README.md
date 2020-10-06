@@ -11,7 +11,7 @@ The code is split into modules(including sagas, actions and reducers) and each m
 ## Quick Start
 1. Clone this repo using
 ``` sh
-  git clone --depth=1 https://github.com/noelzubin/scalabe-react.git <YOUR_PROJECT_NAME>
+  git clone --depth=1 https://github.com/noelzubin/scalable-react.git <YOUR_PROJECT_NAME>
 ```
 2. Move to the appropriate directory: cd <YOUR_PROJECT_NAME>.
 3. Run npm run setup in order to install dependencies and clean the git repo.
